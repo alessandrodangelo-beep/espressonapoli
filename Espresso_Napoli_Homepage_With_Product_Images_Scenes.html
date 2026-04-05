@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espresso Napoli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:        #f7f1e8;
+      --cream-deep:   #ede3d4;
+      --parchment:    #e0ceb4;
+      --white:        #fdfaf6;
+      --espresso:     #1c0f06;
+      --espresso-mid: #3d2010;
+      --espresso-soft:#6b3d25;
+      --gold:         #b8762e;
+      --gold-light:   #d4954a;
+      --gold-pale:    #e8c88a;
+      --terracotta:   #c4512a;
+      --terra-soft:   #d4704a;
+      --text-body:    #3a2010;
+      --text-dim:     #7a5840;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--espresso);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 4rem;
+      background: rgba(247,241,232,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(184,118,46,0.14);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--espresso);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--espresso); }
+
+    .nav-cta {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--espresso);
+      padding: 0.75rem 1.7rem;
+      text-decoration: none;
+      font-weight: 400;
+      transition: background 0.3s;
+    }
+
+    .nav-cta:hover { background: var(--terracotta); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10rem 4rem 7rem;
+    }
+
+    .hero-right {
+      background: var(--espresso);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-right-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 30% 70%, #4a1e0a 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 80% 20%, rgba(196,81,42,0.13) 0%, transparent 60%),
+        #1c0f06;
+    }
+
+    .hero-tile {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image:
+        repeating-linear-gradient(45deg, #c8934a 0px, #c8934a 1px, transparent 1px, transparent 28px),
+        repeating-linear-gradient(-45deg, #c8934a 0px, #c8934a 1px, transparent 1px, transparent 28px);
+    }
+
+    .hero-cup-area {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .moka-visual {
+      width: 190px;
+      height: 250px;
+      margin: 0 auto 2rem;
+    }
+
+    .steam-path {
+      animation: steam-float 3s ease-in-out infinite;
+    }
+
+    .steam-path:nth-child(2) { animation-delay: 0.9s; }
+    .steam-path:nth-child(3) { animation-delay: 1.8s; }
+
+    @keyframes steam-float {
+      0%   { opacity: 0; transform: translateY(0); }
+      25%  { opacity: 0.65; }
+      100% { opacity: 0; transform: translateY(-55px); }
+    }
+
+    .hero-right-quote {
+      position: absolute;
+      bottom: 3.5rem;
+      left: 3rem;
+      right: 3rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(247,241,232,0.45);
+      line-height: 1.65;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 2rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--espresso);
+      margin-bottom: 2rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-body {
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: var(--text-body);
+      max-width: 400px;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--white);
+      background: var(--espresso);
+      padding: 1.1rem 2.4rem;
+      text-decoration: none;
+      transition: background 0.35s;
+    }
+
+    .btn-dark:hover { background: var(--terracotta); }
+
+    .btn-link {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transition: color 0.3s;
+    }
+
+    .btn-link::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.3s;
+    }
+
+    .btn-link:hover { color: var(--espresso); }
+    .btn-link:hover::after { width: 40px; }
+
+    /* ─── NAPLES BAND ─── */
+    .naples-band {
+      background: var(--terracotta);
+      padding: 2rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3.5rem;
+    }
+
+    .band-item {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(253,250,246,0.9);
+    }
+
+    .band-sep {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(253,250,246,0.4);
+    }
+
+    /* ─── QUOTE ─── */
+    .quote-section {
+      padding: 9rem 4rem;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-section::before {
+      content: '\201C';
+      position: absolute;
+      top: -3rem;
+      left: 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22rem;
+      font-weight: 300;
+      color: var(--cream-deep);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .quote-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .quote-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 3.2vw, 2.9rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--espresso);
+      margin-bottom: 3rem;
+    }
+
+    .quote-main strong {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--terracotta);
+    }
+
+    .quote-attr {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .quote-attr-line { width: 40px; height: 1px; background: var(--gold); }
+
+    .quote-attr-text {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    /* ─── PRODUCTS ─── */
+    .products {
+      padding: 8rem 4rem;
+      background: var(--cream);
+    }
+
+    .section-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 300;
+      color: var(--espresso);
+      line-height: 1.15;
+      margin-bottom: 4.5rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--parchment);
+      padding: 3.5rem 3rem 3rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s, box-shadow 0.4s;
+      cursor: pointer;
+    }
+
+    .product-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, var(--terracotta), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s;
+    }
+
+    .product-card:hover {
+      border-color: var(--gold-pale);
+      box-shadow: 0 8px 40px rgba(184,118,46,0.1);
+    }
+
+    .product-card:hover::after { transform: scaleX(1); }
+
+    .product-num {
+      position: absolute;
+      top: 2.2rem;
+      right: 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--cream-deep);
+      line-height: 1;
+      user-select: none;
+      transition: color 0.4s;
+    }
+
+    .product-card:hover .product-num { color: var(--gold-pale); }
+
+    .product-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 400;
+      margin-bottom: 0.9rem;
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--espresso);
+      margin-bottom: 1.5rem;
+    }
+
+    .product-desc {
+      font-size: 0.92rem;
+      line-height: 1.85;
+      color: var(--text-body);
+      margin-bottom: 2.5rem;
+    }
+
+    .product-link {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .product-link::after {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.3s;
+    }
+
+    .product-card:hover .product-link { color: var(--terracotta); }
+    .product-card:hover .product-link::after { width: 45px; }
+
+    .product-card {
+      padding: 0 0 3rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-image-wrap {
+      background: transparent;
+      padding: 1rem 1rem 0.2rem;
+      border-bottom: none;
+      margin-bottom: 1.35rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .product-image {
+      width: 55%;
+      max-width: 175px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .product-content {
+      position: relative;
+      padding: 0 3rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-num {
+      top: 0.15rem;
+      right: 0;
+      font-size: 4.2rem;
+      color: var(--cream-deep);
+    }
+
+    /* ─── STORY ─── */
+    .story {
+      background: var(--espresso);
+      padding: 9rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--terracotta), var(--gold), var(--terracotta));
+    }
+
+    .story-tile-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.025;
+      background-image:
+        repeating-linear-gradient(0deg, #c8934a 0px, #c8934a 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(90deg, #c8934a 0px, #c8934a 1px, transparent 1px, transparent 60px);
+    }
+
+    .story-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 8rem;
+      align-items: start;
+    }
+
+    .story-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .story-eyebrow::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    .story-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 2.5rem;
+    }
+
+    .story-heading em { font-style: italic; color: var(--gold-light); }
+
+    .story-text {
+      font-size: 1rem;
+      line-height: 2;
+      color: rgba(247,241,232,0.7);
+      margin-bottom: 1.6rem;
+    }
+
+    .story-text strong { color: var(--cream); font-weight: 400; }
+    .story-text em { font-style: italic; color: var(--gold-light); }
+
+    .story-right {
+      border-left: 1px solid rgba(184,118,46,0.18);
+      padding-left: 4rem;
+      padding-top: 0.5rem;
+    }
+
+    .manifesto-lines { display: flex; flex-direction: column; }
+
+    .manifesto-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+      font-weight: 300;
+      line-height: 1.4;
+      color: rgba(247,241,232,0.18);
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(184,118,46,0.07);
+      transition: color 0.45s;
+      cursor: default;
+    }
+
+    .manifesto-line:hover { color: var(--cream); }
+    .manifesto-line em { font-style: italic; color: var(--gold-light); }
+    .manifesto-line.lit { color: rgba(247,241,232,0.75); }
+
+    /* ─── RITUAL ─── */
+    .ritual {
+      padding: 8rem 4rem;
+      background: var(--white);
+    }
+
+    .ritual-inner { max-width: 1200px; margin: 0 auto; }
+
+    .ritual-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 5rem;
+      border: 1px solid var(--parchment);
+    }
+
+    .ritual-step {
+      padding: 3rem 2.5rem;
+      border-right: 1px solid var(--parchment);
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .ritual-step:last-child { border-right: none; }
+    .ritual-step:hover { background: var(--cream); }
+
+    .ritual-step::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, var(--terracotta), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s;
+    }
+
+    .ritual-step:hover::after { transform: scaleX(1); }
+
+    .ritual-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.72rem;
+      color: var(--terracotta);
+      letter-spacing: 0.25em;
+      font-style: italic;
+      margin-bottom: 1.8rem;
+    }
+
+    .ritual-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--espresso);
+      margin-bottom: 1rem;
+    }
+
+    .ritual-desc {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--text-body);
+    }
+
+    /* ─── NAPLES PASSION ─── */
+    .napoli-section {
+      background: var(--cream-deep);
+      padding: 8rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .napoli-section::after {
+      content: 'NAPOLI';
+      position: absolute;
+      bottom: -2rem;
+      right: -1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18vw;
+      font-weight: 600;
+      color: rgba(196,81,42,0.05);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .napoli-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      position: relative;
+    }
+
+    .napoli-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .napoli-stat {
+      background: var(--white);
+      padding: 2.8rem 2.5rem;
+      border-top: 3px solid var(--parchment);
+      transition: border-color 0.3s;
+    }
+
+    .napoli-stat:hover { border-color: var(--terracotta); }
+
+    .napoli-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--espresso);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    .napoli-num span { color: var(--terracotta); font-style: italic; }
+
+    .napoli-label {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    .napoli-text p {
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--text-body);
+      margin-bottom: 1.5rem;
+    }
+
+    .napoli-text strong { color: var(--espresso); font-weight: 400; }
+    .napoli-text em { font-style: italic; color: var(--terracotta); }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: var(--espresso);
+      padding: 9rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--terracotta), var(--gold), var(--terracotta));
+    }
+
+    .cta-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(196,81,42,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+
+    .cta-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-heading em { font-style: italic; color: var(--gold-light); }
+
+    .cta-sub {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: rgba(247,241,232,0.55);
+      max-width: 440px;
+      margin: 0 auto 4rem;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-terra {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--terracotta);
+      padding: 1.2rem 3rem;
+      text-decoration: none;
+      font-weight: 400;
+      transition: background 0.35s;
+    }
+
+    .btn-terra:hover { background: var(--terra-soft); }
+
+    .btn-outline {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(247,241,232,0.55);
+      border: 1px solid rgba(247,241,232,0.18);
+      padding: 1.2rem 3rem;
+      text-decoration: none;
+      font-weight: 400;
+      transition: all 0.35s;
+    }
+
+    .btn-outline:hover {
+      color: var(--cream);
+      border-color: rgba(247,241,232,0.45);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0f0804;
+      padding: 5rem 4rem 3rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(184,118,46,0.1);
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.92rem;
+      color: rgba(247,241,232,0.35);
+      line-height: 1.75;
+    }
+
+    .footer-col-title {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col li { margin-bottom: 0.8rem; }
+
+    .footer-col a {
+      font-size: 0.85rem;
+      color: rgba(247,241,232,0.38);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover { color: rgba(247,241,232,0.8); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: rgba(247,241,232,0.18);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-soul {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: rgba(247,241,232,0.22);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.15s; }
+    .reveal-d2 { transition-delay: 0.3s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      nav { padding: 1.4rem 2rem; }
+      .nav-links, .nav-cta { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 8rem 2rem 4rem; }
+      .hero-right { height: 55vw; min-height: 260px; }
+      .naples-band { gap: 1.5rem; padding: 1.8rem 2rem; flex-wrap: wrap; }
+      .quote-section, .products, .story, .ritual, .napoli-section, .cta-section { padding-left: 2rem; padding-right: 2rem; }
+      .products-grid { grid-template-columns: 1fr; }
+      .product-content { padding: 0 2rem; }
+      .story-inner { grid-template-columns: 1fr; gap: 4rem; }
+      .story-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(184,118,46,0.18); padding-top: 3rem; }
+      .ritual-steps { grid-template-columns: 1fr 1fr; }
+      .napoli-inner { grid-template-columns: 1fr; gap: 3.5rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Espresso Napoli</a>
+    <ul class="nav-links">
+      <li><a href="#products">The Coffee</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#ritual">The Ritual</a></li>
+    </ul>
+    <a href="#shop" class="nav-cta">Shop Now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Napoli &mdash; Est. 2024</p>
+      <h1 class="hero-headline">
+        Before the world<br>
+        gets <em>involved.</em>
+      </h1>
+      <p class="hero-body">
+        In Naples, a coffee is never just a drink. It is the first word of the morning,
+        the pause that belongs only to you — before the noise, before the obligations,
+        before everything else decides what kind of day you'll have.
+      </p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-dark">Shop the Collection</a>
+        <a href="#story" class="btn-link">Our Story</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-right-bg"></div>
+      <div class="hero-tile"></div>
+      <div class="hero-cup-area">
+        <div class="moka-visual">
+          <svg viewBox="0 0 190 250" fill="none" xmlns="http://www.w3.org/2000/svg" width="190" height="250">
+            <!-- Steam -->
+            <path class="steam-path" d="M80 52 C77 42 83 35 79 24" stroke="rgba(200,147,74,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+            <path class="steam-path" d="M95 47 C92 35 99 27 95 15" stroke="rgba(200,147,74,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+            <path class="steam-path" d="M110 52 C113 41 107 34 111 23" stroke="rgba(200,147,74,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Moka top body -->
+            <path d="M74 138 L76 78 C76 70 83 66 95 66 C107 66 114 70 114 78 L116 138 Z" fill="rgba(200,147,74,0.1)" stroke="rgba(200,147,74,0.55)" stroke-width="1"/>
+            <!-- Top cap -->
+            <ellipse cx="95" cy="66" rx="19" ry="5.5" fill="rgba(200,147,74,0.15)" stroke="rgba(200,147,74,0.5)" stroke-width="0.8"/>
+            <!-- Knob -->
+            <circle cx="95" cy="61" r="4.5" fill="rgba(200,147,74,0.35)" stroke="rgba(200,147,74,0.6)" stroke-width="0.8"/>
+            <!-- Waist connector -->
+            <rect x="70" y="138" width="50" height="10" rx="2" fill="rgba(200,147,74,0.18)" stroke="rgba(200,147,74,0.5)" stroke-width="0.8"/>
+            <!-- Moka bottom body -->
+            <path d="M66 148 L68 204 C68 212 79 218 95 218 C111 218 122 212 122 204 L124 148 Z" fill="rgba(200,147,74,0.08)" stroke="rgba(200,147,74,0.45)" stroke-width="1"/>
+            <!-- Handle -->
+            <path d="M122 170 C140 170 147 181 143 194 C140 204 126 206 122 200" stroke="rgba(200,147,74,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Base plate -->
+            <ellipse cx="95" cy="218" rx="29" ry="5" fill="rgba(196,81,42,0.15)" stroke="rgba(200,147,74,0.25)" stroke-width="0.6"/>
+            <!-- Detail lines on top -->
+            <line x1="82" y1="95" x2="108" y2="95" stroke="rgba(200,147,74,0.2)" stroke-width="0.5"/>
+            <line x1="80" y1="110" x2="110" y2="110" stroke="rgba(200,147,74,0.15)" stroke-width="0.5"/>
+          </svg>
+        </div>
+      </div>
+      <p class="hero-right-quote">
+        "The beans travel the world.<br>The soul doesn't move."
+      </p>
+    </div>
+  </section>
+
+  <!-- NAPLES BAND -->
+  <div class="naples-band">
+    <span class="band-item">Roasted with Neapolitan stubbornness</span>
+    <span class="band-sep"></span>
+    <span class="band-item">Beans, Moka &amp; Capsules</span>
+    <span class="band-sep"></span>
+    <span class="band-item">Free delivery over £35</span>
+    <span class="band-sep"></span>
+    <span class="band-item">This coffee was not made to be rushed</span>
+  </div>
+
+  <!-- PHILOSOPHY QUOTE -->
+  <section class="quote-section reveal">
+    <div class="quote-inner">
+      <p class="quote-main">
+        Naples has never grown a single coffee bean.<br>
+        And yet it gave the world its <strong>greatest espresso.</strong><br>
+        Not through geography — through <strong>obsession.</strong>
+      </p>
+      <div class="quote-attr">
+        <div class="quote-attr-line"></div>
+        <span class="quote-attr-text">The Espresso Napoli Philosophy</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products reveal" id="products">
+    <p class="section-eyebrow">Our Collection</p>
+    <h2 class="section-title">Three ways to drink <em>Naples.</em></h2>
+
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="product-image-wrap">
+          <img src="partenope_scene.png" alt="Partenope Selection moka packaging" class="product-image" />
+        </div>
+        <div class="product-content">
+          <div class="product-num">01</div>
+          <p class="product-tag">Moka Ritual</p>
+          <h3 class="product-name">Partenope Selection</h3>
+          <p class="product-desc">
+            The most intimate expression of Naples — slower, warmer, more domestic.
+            Ground for the moka ritual, where aroma fills the kitchen first and coffee arrives as memory, family and morning identity.
+          </p>
+          <a href="#shop" class="product-link">Discover</a>
+        </div>
+      </div>
+
+
+      <div class="product-card reveal reveal-d1">
+        <div class="product-image-wrap">
+          <img src="vesuvius_scene.png" alt="Vesuvius Selection capsules packaging" class="product-image" />
+        </div>
+        <div class="product-content">
+          <div class="product-num">02</div>
+          <p class="product-tag">Compatible Capsules</p>
+          <h3 class="product-name">Vesuvius Selection</h3>
+          <p class="product-desc">
+            Pressure, release and immediate intensity — the most direct route from ritual to cup.
+            Designed for modern convenience without losing the force, depth and unmistakable presence of Espresso Napoli.
+          </p>
+          <a href="#shop" class="product-link">Discover</a>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-d2">
+        <div class="product-image-wrap">
+          <img src="magma_scene.png" alt="Magma Selection whole beans packaging" class="product-image" />
+        </div>
+        <div class="product-content">
+          <div class="product-num">03</div>
+          <p class="product-tag">Whole Bean</p>
+          <h3 class="product-name">Magma Selection</h3>
+          <p class="product-desc">
+            The force of the bean in its purest form — dense, structured and unapologetically character-led.
+            Built for those who grind fresh and want a cup with depth, pressure and identity from the very first pour.
+          </p>
+          <a href="#shop" class="product-link">Discover</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story reveal" id="story">
+    <div class="story-tile-bg"></div>
+    <div class="story-inner">
+      <div>
+        <p class="story-eyebrow">The Story</p>
+        <h2 class="story-heading">The soul<br><em>doesn't move.</em></h2>
+        <p class="story-text">
+          I grew up in a city where coffee isn't a drink. It's <strong>the first word of the morning</strong>,
+          the punctuation between conversations, the reason to stop and breathe.
+          In Naples, a bar isn't a place you visit — it's a place you belong to.
+        </p>
+        <p class="story-text">
+          When I left, I carried that with me. Everywhere I went, the coffee was wrong.
+          Not bad — just <strong>wrong</strong>. Too light, too rushed, too forgettable.
+        </p>
+        <p class="story-text">
+          Espresso Napoli isn't about importing Naples. It's about roasting with the same stubbornness,
+          the same dark patience, the same <em>refusal to compromise</em> that I grew up watching
+          behind every counter in the city.
+        </p>
+      </div>
+
+      <div class="story-right">
+        <div class="manifesto-lines" id="manifesto">
+          <div class="manifesto-line">Before the phone.</div>
+          <div class="manifesto-line">Before the messages.</div>
+          <div class="manifesto-line">Before the noise decides<br>what kind of day you'll have.</div>
+          <div class="manifesto-line"><em>There is this.</em></div>
+          <div class="manifesto-line">The water heating.</div>
+          <div class="manifesto-line">The moka finding its pressure.</div>
+          <div class="manifesto-line">The smell that arrives<br>before the coffee does.</div>
+          <div class="manifesto-line"><em>This coffee was not made to be rushed.</em></div>
+          <div class="manifesto-line">Neither were you.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RITUAL -->
+  <section class="ritual reveal" id="ritual">
+    <div class="ritual-inner">
+      <p class="section-eyebrow">How it's made</p>
+      <h2 class="section-title">The Ritual<br><em>of roasting.</em></h2>
+      <div class="ritual-steps">
+        <div class="ritual-step">
+          <p class="ritual-num">I — Source</p>
+          <h3 class="ritual-title">The Bean</h3>
+          <p class="ritual-desc">International origins selected for character, not convenience. Beans that carry complexity worth transforming.</p>
+        </div>
+        <div class="ritual-step">
+          <p class="ritual-num">II — Roast</p>
+          <h3 class="ritual-title">The Dark</h3>
+          <p class="ritual-desc">The Neapolitan roast is darker, longer, more decisive. It doesn't flatter the bean. It transforms it into something unmistakably its own.</p>
+        </div>
+        <div class="ritual-step">
+          <p class="ritual-num">III — Rest</p>
+          <h3 class="ritual-title">The Patience</h3>
+          <p class="ritual-desc">After roasting, the coffee rests. Degassing is not a detail — it is the difference between a sharp cup and a smooth one.</p>
+        </div>
+        <div class="ritual-step">
+          <p class="ritual-num">IV — Pour</p>
+          <h3 class="ritual-title">The Moment</h3>
+          <p class="ritual-desc">Then the ritual is yours. Five minutes. No agenda. The cup and the quiet before everything else gets involved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAPLES PASSION -->
+  <section class="napoli-section reveal">
+    <div class="napoli-inner">
+      <div class="napoli-stats">
+        <div class="napoli-stat">
+          <div class="napoli-num">0<span>.</span></div>
+          <div class="napoli-label">Coffee beans grown in Naples.<br><em style="font-style:italic;color:var(--terracotta)">And yet.</em></div>
+        </div>
+        <div class="napoli-stat">
+          <div class="napoli-num">400<span>+</span></div>
+          <div class="napoli-label">Years of espresso tradition in the streets of Napoli.</div>
+        </div>
+        <div class="napoli-stat">
+          <div class="napoli-num">1<span>°</span></div>
+          <div class="napoli-label">The first coffee of the day. The only one that truly matters.</div>
+        </div>
+        <div class="napoli-stat">
+          <div class="napoli-num">5<span>'</span></div>
+          <div class="napoli-label">Minutes. No phone. No agenda. Just the cup and the quiet.</div>
+        </div>
+      </div>
+
+      <div class="napoli-text">
+        <p class="section-eyebrow" style="margin-bottom:1.2rem">Why Naples</p>
+        <h2 class="section-title" style="margin-bottom:2.5rem">A city that roasts<br><em>with its soul.</em></h2>
+        <p>
+          Neapolitan coffee culture was never about the bean's origin.
+          It was always about what <strong>obsession does to ordinary things.</strong>
+          The same port city that transformed flour and tomatoes into something the world
+          would never stop eating did the same with coffee.
+        </p>
+        <p>
+          <em>It received raw material from the world and made it Neapolitan.</em>
+          That is what we do. That is all we do.
+          And we refuse to do it any other way.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section reveal" id="shop">
+    <div class="cta-glow"></div>
+    <p class="cta-eyebrow">Begin the Ritual</p>
+    <h2 class="cta-heading">Your morning,<br><em>reclaimed.</em></h2>
+    <p class="cta-sub">
+      Shop the first collection — Partenope Selection, Vesuvius Selection and Magma Selection.
+      Roasted with Neapolitan stubbornness. Free delivery on orders over £35.
+    </p>
+    <div class="cta-group">
+      <a href="#" class="btn-terra">Shop the Collection</a>
+      <a href="#story" class="btn-outline">Read the Story</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Espresso Napoli</div>
+        <p class="footer-tagline">"This coffee was not made to be rushed.<br>Neither were you."</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Shop</p>
+        <ul>
+          <li><a href="#">Partenope Selection</a></li>
+          <li><a href="#">Vesuvius Selection</a></li>
+          <li><a href="#">Magma Selection</a></li>
+          <li><a href="#">Gift Sets</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Company</p>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">The Ritual</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Follow</p>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Espresso Napoli. All rights reserved. espressonapoli.com</span>
+      <span class="footer-soul">Made with passion. Roasted with stubbornness.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    reveals.forEach(r => observer.observe(r));
+
+    // Manifesto staggered light-up
+    const lines = document.querySelectorAll('.manifesto-line');
+    const storyObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        lines.forEach((l, i) => setTimeout(() => l.classList.add('lit'), i * 130));
+      }
+    }, { threshold: 0.25 });
+    const storyEl = document.querySelector('.story');
+    if (storyEl) storyObs.observe(storyEl);
+  </script>
+
+</body>
+</html>
