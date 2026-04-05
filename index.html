@@ -205,10 +205,10 @@
     }
 
     .hero-body {
-      font-size: 1.02rem;
+      font-size: 1.1rem;
       line-height: 1.9;
       color: var(--text-body);
-      max-width: 400px;
+      max-width: 430px;
       margin-bottom: 3.5rem;
     }
 
@@ -272,7 +272,7 @@
     .band-item {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 1.05rem;
+      font-size: 1.13rem;
       color: rgba(253,250,246,0.9);
     }
 
@@ -386,6 +386,8 @@
     }
 
     .product-card {
+      display: flex;
+      flex-direction: column;
       background: var(--white);
       border: 1px solid var(--parchment);
       padding: 3.5rem 3rem 3rem;
@@ -446,14 +448,30 @@
       margin-bottom: 1.5rem;
     }
 
+    .product-image-wrap {
+      margin: 0 0 2rem;
+      border: none;
+      background: transparent;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .product-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
     .product-desc {
-      font-size: 0.92rem;
+      font-size: 1rem;
       line-height: 1.85;
       color: var(--text-body);
       margin-bottom: 2.5rem;
     }
 
     .product-link {
+      margin-top: auto;
       font-size: 0.65rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -476,45 +494,6 @@
 
     .product-card:hover .product-link { color: var(--terracotta); }
     .product-card:hover .product-link::after { width: 45px; }
-
-    .product-card {
-      padding: 0 0 3rem;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-image-wrap {
-      background: transparent;
-      padding: 1rem 1rem 0.2rem;
-      border-bottom: none;
-      margin-bottom: 1.35rem;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
-
-    .product-image {
-      width: 55%;
-      max-width: 175px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .product-content {
-      position: relative;
-      padding: 0 3rem;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .product-num {
-      top: 0.15rem;
-      right: 0;
-      font-size: 4.2rem;
-      color: var(--cream-deep);
-    }
 
     /* ─── STORY ─── */
     .story {
@@ -582,7 +561,7 @@
     .story-heading em { font-style: italic; color: var(--gold-light); }
 
     .story-text {
-      font-size: 1rem;
+      font-size: 1.08rem;
       line-height: 2;
       color: rgba(247,241,232,0.7);
       margin-bottom: 1.6rem;
@@ -672,7 +651,7 @@
     }
 
     .ritual-desc {
-      font-size: 0.9rem;
+      font-size: 0.98rem;
       line-height: 1.9;
       color: var(--text-body);
     }
@@ -736,13 +715,13 @@
     .napoli-num span { color: var(--terracotta); font-style: italic; }
 
     .napoli-label {
-      font-size: 0.82rem;
+      font-size: 0.9rem;
       line-height: 1.65;
       color: var(--text-body);
     }
 
     .napoli-text p {
-      font-size: 1rem;
+      font-size: 1.08rem;
       line-height: 2;
       color: var(--text-body);
       margin-bottom: 1.5rem;
@@ -799,7 +778,7 @@
     .cta-heading em { font-style: italic; color: var(--gold-light); }
 
     .cta-sub {
-      font-size: 1rem;
+      font-size: 1.08rem;
       line-height: 1.9;
       color: rgba(247,241,232,0.55);
       max-width: 440px;
@@ -939,7 +918,6 @@
       .naples-band { gap: 1.5rem; padding: 1.8rem 2rem; flex-wrap: wrap; }
       .quote-section, .products, .story, .ritual, .napoli-section, .cta-section { padding-left: 2rem; padding-right: 2rem; }
       .products-grid { grid-template-columns: 1fr; }
-      .product-content { padding: 0 2rem; }
       .story-inner { grid-template-columns: 1fr; gap: 4rem; }
       .story-right { border-left: none; padding-left: 0; border-top: 1px solid rgba(184,118,46,0.18); padding-top: 3rem; }
       .ritual-steps { grid-template-columns: 1fr 1fr; }
@@ -1046,57 +1024,47 @@
   <!-- PRODUCTS -->
   <section class="products reveal" id="products">
     <p class="section-eyebrow">Our Collection</p>
-    <h2 class="section-title">Three ways to drink <em>Naples.</em></h2>
-
-    <div class="products-grid">
-
+    <h2 class="section-title">Three ways to drink <em>Naples.</em></h2>      <div class="products-grid">
       <div class="product-card reveal">
+        <div class="product-num">01</div>
+        <p class="product-tag">Moka Ritual</p>
+        <h3 class="product-name">Partenope Selection</h3>
         <div class="product-image-wrap">
-          <img src="partenope_scene.png" alt="Partenope Selection moka packaging" class="product-image" />
+          <img src="partenope_master_good.jpeg" alt="Partenope Selection moka ground coffee packaging" class="product-image" />
         </div>
-        <div class="product-content">
-          <div class="product-num">01</div>
-          <p class="product-tag">Moka Ritual</p>
-          <h3 class="product-name">Partenope Selection</h3>
-          <p class="product-desc">
-            The most intimate expression of Naples — slower, warmer, more domestic.
-            Ground for the moka ritual, where aroma fills the kitchen first and coffee arrives as memory, family and morning identity.
-          </p>
-          <a href="#shop" class="product-link">Discover</a>
-        </div>
+        <p class="product-desc">
+          The most intimate expression of Naples — slower, warmer, more domestic.
+          Ground for the moka ritual, where aroma fills the kitchen first and coffee arrives as memory, family and morning identity.
+        </p>
+        <a href="#shop" class="product-link">Discover</a>
       </div>
 
-
       <div class="product-card reveal reveal-d1">
+        <div class="product-num">02</div>
+        <p class="product-tag">Compatible Capsules</p>
+        <h3 class="product-name">Vesuvius Selection</h3>
         <div class="product-image-wrap">
-          <img src="vesuvius_scene.png" alt="Vesuvius Selection capsules packaging" class="product-image" />
+          <img src="vesuvius_master_good.jpeg" alt="Vesuvius Selection compatible capsules packaging" class="product-image" />
         </div>
-        <div class="product-content">
-          <div class="product-num">02</div>
-          <p class="product-tag">Compatible Capsules</p>
-          <h3 class="product-name">Vesuvius Selection</h3>
-          <p class="product-desc">
-            Pressure, release and immediate intensity — the most direct route from ritual to cup.
-            Designed for modern convenience without losing the force, depth and unmistakable presence of Espresso Napoli.
-          </p>
-          <a href="#shop" class="product-link">Discover</a>
-        </div>
+        <p class="product-desc">
+          Pressure, release and immediate intensity — the most direct route from ritual to cup.
+          Designed for modern convenience without losing the force, depth and unmistakable presence of Espresso Napoli.
+        </p>
+        <a href="#shop" class="product-link">Discover</a>
       </div>
 
       <div class="product-card reveal reveal-d2">
+        <div class="product-num">03</div>
+        <p class="product-tag">Whole Bean</p>
+        <h3 class="product-name">Magma Selection</h3>
         <div class="product-image-wrap">
-          <img src="magma_scene.png" alt="Magma Selection whole beans packaging" class="product-image" />
+          <img src="magma_master_good.jpeg" alt="Magma Selection whole beans packaging" class="product-image" />
         </div>
-        <div class="product-content">
-          <div class="product-num">03</div>
-          <p class="product-tag">Whole Bean</p>
-          <h3 class="product-name">Magma Selection</h3>
-          <p class="product-desc">
-            The force of the bean in its purest form — dense, structured and unapologetically character-led.
-            Built for those who grind fresh and want a cup with depth, pressure and identity from the very first pour.
-          </p>
-          <a href="#shop" class="product-link">Discover</a>
-        </div>
+        <p class="product-desc">
+          The force of the bean in its purest form — dense, structured and unapologetically character-led.
+          Built for those who grind fresh and want a cup with depth, pressure and identity from the very first pour.
+        </p>
+        <a href="#shop" class="product-link">Discover</a>
       </div>
     </div>
   </section>
@@ -1216,7 +1184,7 @@
     <p class="cta-eyebrow">Begin the Ritual</p>
     <h2 class="cta-heading">Your morning,<br><em>reclaimed.</em></h2>
     <p class="cta-sub">
-      Shop the first collection — Partenope Selection, Vesuvius Selection and Magma Selection.
+      Shop the first collection — Magma Selection, Partenope Selection and Vesuvius Selection.
       Roasted with Neapolitan stubbornness. Free delivery on orders over £35.
     </p>
     <div class="cta-group">
