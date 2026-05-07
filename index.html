@@ -197,7 +197,7 @@
       position: absolute;
       inset: 0;
       transform: none;
-      transition: transform 8s ease;
+      transition: none;
       background: linear-gradient(160deg, #3a2a1a 0%, #1a1008 40%, #2d1a0a 70%, #1a0f05 100%);
     }
     .hero-bg::before {
@@ -232,7 +232,7 @@
       object-fit: cover;
       object-position: center bottom;
       z-index: 1;
-      filter: brightness(1.08) contrast(1.06) saturate(1.1);
+      filter: none;
     }
     .hero-bg::before { z-index: 2; }
     .hero-bg::after { z-index: 3; }
@@ -2199,12 +2199,7 @@
       navbar.classList.toggle('scrolled', window.scrollY > 80);
     }, { passive: true });
 
-    /* ── HERO PARALLAX ── */
-    const heroBg = document.getElementById('hero-bg');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY < window.innerHeight)
-        heroBg.style.transform = `scale(1.08) translateY(${window.scrollY * 0.25}px)`;
-    }, { passive: true });
+    /* ── HERO PARALLAX DISABLED FOR FIRST-LOAD PERFORMANCE ── */
 
     /* ── SCROLL REVEAL ── */
     const observer = new IntersectionObserver(entries => {
